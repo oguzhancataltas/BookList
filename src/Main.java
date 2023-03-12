@@ -19,13 +19,13 @@ public class Main {
         arrayList.add(new Book("Kelebek", 565, "Henri Charriere", "01.01.2010"));
         arrayList.add(new Book("Çankaya", 656, "Falih Rıfkı Atay", "31.08.2021"));
 
-//        for (int i = 0; i <arrayList.size(); i++){
-//            mapList.put(arrayList.get(i).getBookName(), arrayList.get(i).getAuthorName());
-//        }
-
+        //Yazar ve kitap ismi Map Listesi
         arrayList.stream().forEach(num -> mapList.put(num.getBookName(), num.getAuthorName()));
+
+        //Sayfa Sayısı 250 den fazla olan kitap listesi
         arrayList.stream().filter(num -> num.getPageNumber()>250).forEach(pageList::add);
 
+        //Listeleri Ekrana Yazdırma
         mapList.forEach((key, value) -> System.out.println("--------------------\n" + "Kitap İsmi : " + key + "\nYazar İsmi : " + value));
         pageList.stream().forEach(num -> System.out.println("--------------------\n" + "Kitap İsmi : " + num.getBookName() + "\nYazar İsmi : " + num.getAuthorName() + "\nSayfa Sayısı : " + num.getPageNumber() + "\nYayın Tarihi : " + num.getReleaseDate()));
 
